@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Frontend + Backend</title>
+  </head>
+  <body>
+    <h1>Frontend ✅</h1>
+
+    <button onclick="loadMessage()">Call Backend</button>
+
+    <pre id="output"></pre>
+
+    <script>
+      async function loadMessage() {
+        const res = await fetch("http://backend:3000/api/hello");
+        const data = await res.json();
+        document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+      }
+    </script>
+  </body>
+</html>
